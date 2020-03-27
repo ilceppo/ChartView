@@ -109,7 +109,7 @@ public struct LineView: View {
         let stepWidth: CGFloat = width / CGFloat(points.count-1)
         let stepHeight: CGFloat = height / CGFloat(points.max()! + points.min()!)
         
-        let index:Int = Int(floor((toPoint.x-15)/stepWidth))
+        let index:Int = Int(floor((toPoint.x-30)/stepWidth))
         if (index >= 0 && index < points.count){
             self.currentDataNumber = points[index]
             return CGPoint(x: CGFloat(index)*stepWidth, y: CGFloat(points[index])*stepHeight)

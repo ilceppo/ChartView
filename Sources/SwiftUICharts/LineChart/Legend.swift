@@ -24,7 +24,7 @@ struct Legend: View {
     var stepHeight: CGFloat {
         let points = self.data.onlyPoints()
         if let min = points.min(), let max = points.max(), min != max {
-            if (min < 0){
+            if (min < 1){
                 return (frame.size.height-padding) / CGFloat(max - min)
             }else{
                 return (frame.size.height-padding) / CGFloat(max + min)
@@ -42,7 +42,7 @@ struct Legend: View {
         ZStack(alignment: .topLeading){
             ForEach((0...4), id: \.self) { height in
                 HStack(alignment: .center){
-                    Text("\(self.getYLegendSafe(height: height), specifier: "%.2f")").offset(x: 0, y: self.getYposition(height: height) )
+                    Text("\(self.getYLegendSafe(height: height), specifier: "%.6f")").offset(x: 0, y: self.getYposition(height: height) )
                         .foregroundColor(Colors.LegendText)
                         .font(.caption)
                     self.line(atHeight: self.getYLegendSafe(height: height), width: self.frame.width)
